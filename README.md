@@ -34,3 +34,6 @@ use given command to clone project:
 
 ### Openapi dashboard after running server
 ![img.png](img.png)
+
+### Response of the given project
+![img_1.png](img_1.png)
