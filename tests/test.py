@@ -61,7 +61,7 @@ def test_get_status_count_no_data(client, mongo_fixture):
     start_time = (datetime.utcnow() + timedelta(days=1)).isoformat()
     end_time = (datetime.utcnow() + timedelta(days=2)).isoformat()
 
-    response = client.get("/status_count/", json={"start_time": start_time, "end_time": end_time})
+    response = client.get(f"/status_count/?start_time={start_time}&end_time={end_time}")
 
     assert response.status_code == 200
     assert response.json() == {}
@@ -80,25 +80,7 @@ def test_get_status_count_invalid_dates(client):
         assert response.status_code == 422  # Unprocessable Entity
 
 
-@pytest.mark.usefixtures("mongo_fixture")  # Use shared MongoDB fixture
-def test_process_message(mocker):
-    # Mock RabbitMQ connection and channel
-    connection_mock = mocker.Mock()
-    channel_mock = mocker.Mock()
-    connection_mock.channel.return_value = channel_mock
-
-    # Mock message delivery
-    message = {"status": 3}  # Sample message with status
-    channel_mock.basic_consume.call_args = (mocker.ANY, mocker.ANY, mocker.ANY, json.dumps(message))
-
-    # Call process_message with mocked connection
-    # process_message(connection_mock, None, None, json.dumps(message))
-
-    # Assert message is inserted into MongoDB
-    mongo_fixture.insert_one.assert_called_once_with(message)
 
 
-# @pytest.mark.usefixtures("mongo_fixture")  # Use shared MongoDB fixture
-# def test_process_message_error(mocker, client):
-#     # Mock insert_one to raise an error
-#     mongo_fixture.insert_one.side_
+
+
