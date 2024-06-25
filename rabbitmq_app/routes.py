@@ -1,6 +1,5 @@
 # server/app/routes.py
 from fastapi import APIRouter, HTTPException, Query
-from models import TimeRange
 from database import collection
 from typing import Annotated
 from datetime import datetime, timezone
