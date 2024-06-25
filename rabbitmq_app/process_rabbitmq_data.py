@@ -1,6 +1,6 @@
 import pika
 import json
-from database import collection
+from Assignment_rabbitmqt_upswing.rabbitmq_app.database import collection
 
 rabbitmq_host = 'localhost'
 rabbitmq_queue = 'mqtt_queue'

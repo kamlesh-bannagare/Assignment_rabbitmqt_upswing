@@ -1,7 +1,7 @@
 # server/app/main.py
 from fastapi import FastAPI
-from routes import router
-from process_rabbitmq_data import start_mqtt_consumer
+from Assignment_rabbitmqt_upswing.rabbitmq_app.routes import router
+from Assignment_rabbitmqt_upswing.rabbitmq_app.process_rabbitmq_data import start_mqtt_consumer
 
 app = FastAPI()
 

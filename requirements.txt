@@ -2,3 +2,4 @@ fastapi
 pika
 pymongo
 uvicorn
+pytest
