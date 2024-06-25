@@ -31,3 +31,6 @@ use given command to clone project:
 - before running project install required packages in you env using requirements.txt file
 - run client file which is generate_and_send_messages file
 - run server using main.py file 
+
+### Openapi dashboard after running server
+![img.png](img.png)
