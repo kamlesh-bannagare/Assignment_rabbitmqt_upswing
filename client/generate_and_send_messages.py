@@ -15,7 +15,7 @@ except pika.exceptions.ConnectionClosed:
   print("Failed to connect to RabbitMQ. Exiting.")
   exit(1)
 
-# Declare the queue (ideally in a separate function for clarity)
+# Declare the queue
 def declare_rabbitmq_queue():
   channel.queue_declare(queue=rabbitmq_queue)
 
